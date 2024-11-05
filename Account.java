@@ -1,55 +1,59 @@
-public class Account{
-    String id;
-    String name;
-    int balance;
-    public Account(String x, String y){
-        id = x;
-        name = y;
+public class Account {
+     int id;
+     TheCustomer customer;
+     double balance = 0.0;
+
+    public Account(int id, TheCustomer customer, double balance) {
+        this.id = id;
+        this.customer = customer;
+        this.balance = balance;
     }
-    public Account(String x, String y, int z){
-        id = x;
-        name = y;
-        balance = z;
+
+    public Account(int id, TheCustomer customer) {
+        this.id = id;
+        this.customer = customer;
     }
-    public String getId(){
+
+    public int getId() {
         return id;
     }
-    public String getName(){
-        return name;
+
+    public TheCustomer getCustomer() {
+        return customer;
     }
-    public int getBalance(){
+
+    public double getBalance() {
         return balance;
     }
-    public void credit(int amount){
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getCustomerName() {
+        return customer.getName();
+    }
+
+    public void credit(double amount) {
         balance += amount;
     }
-    public void debit(int amount){
-     if(balance >= amount){
-        balance -= amount;
-     }else {
-        System.out.println("Insufficient balance");
-     }
+
+    public void setDeposit(double amount) {
+        balance += amount;
     }
-    public void transferTo(Account another, int amount){
-        if(balance >=amount){
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
             balance -= amount;
-        }else {
-            System.out.println("Insufficient balance to transfer");
+        } else {
+            System.out.println("Amount withdrawn exceeds the current balance!");
         }
     }
-    public void setId(String newid){
-        this.id = newid;
-    }
-    public void setName(String newname){
-        this.name = newname;
-    } 
-    public void setBalance(int newbalance){
-        this.balance = newbalance;
-    }
+
     @Override
-    public String toString(){
-        return "The ID = " + id + "\n" + 
-        "The name = "+ name + "\n" + 
-        "The balance + " + balance + "\n";
+    public String toString() {
+        return "Account[id=" + id + 
+        ", customer=" + customer + 
+        ", balance=" + balance + "]";
     }
 }
