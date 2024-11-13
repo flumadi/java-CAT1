@@ -1,70 +1,48 @@
-public class Ball{
-    float x;
-    float y;
-    int radius;
-    float xDelta;
-    float yDelta;
-    public Ball(float x, float y, int radius, float xDelta, float yDelta){
+public class Ball {
+    private float x;
+    private float y;
+    private float z;
+
+    // Constructor
+    public Ball(float x, float y, float z) {
         this.x = x;
         this.y = y;
-        this.radius = radius;
-        this.xDelta = xDelta;
-        this.yDelta = yDelta;
+        this.z = z;
     }
+
+    // Getter for x
     public float getX() {
         return x;
     }
 
+    // Getter for y
     public float getY() {
         return y;
     }
 
-    public int getRadius() {
-        return radius;
+    // Getter for z
+    public float getZ() {
+        return z;
     }
-
-    public float getXDelta() {
-        return xDelta;
-    }
-
-    public float getYDelta() {
-        return yDelta;
-    }
-
-    public void setX(float x) {
+    public void setX(float x){
         this.x = x;
     }
-
-    public void setY(float y) {
+    public void setY(float y){
         this.y = y;
     }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
+    public void setZ(float z){
+        this.z = z;
+    }
+    // Setter for x, y, z
+    public void setXYZ(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
-    public void setXDelta(float xDelta) {
-        this.xDelta = xDelta;
-    }
-
-    public void setYDelta(float yDelta) {
-        this.yDelta = yDelta;
-    }
-
-    public void move() {
-        x += xDelta;
-        y += yDelta;
-    }
-    public void reflectHorizontal() {
-        xDelta = -xDelta;
-    }
-    public void reflectVertical() {
-        yDelta = -yDelta;
-    }
+    // toString method
     @Override
-
-   
-public String toString() {
-    return "Ball[(" + x + ", " + y + "), speed=(" + xDelta + ", " + yDelta + ")]";
-  }
+    public String toString() {
+        return "Ball at (" + x + ", " + y + ", " + z + ")";
+    }
 }
